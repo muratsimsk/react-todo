@@ -8,10 +8,10 @@ import TodolistItem from './TodoListItem';
 //   { id: 3, title: "Something to do 3" }
 // ];
 
-function TodoList(props) {
+function TodoList({todoList}) {
   return (
     <ul>
-      {props.todoList.map((todo) => (
+      {todoList.map((todo) => (
         <TodolistItem key={todo.id} title={todo.title}/>
       ))}
     </ul>
