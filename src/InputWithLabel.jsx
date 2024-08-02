@@ -1,30 +1,27 @@
 import { useEffect, useRef } from "react";
 
-
-export function InputWithLabel(props){
-
+export function InputWithLabel(props) {
     const inputRef = useRef();
-    console.log(inputRef.current)
-    
-    useEffect(()=> {
-        inputRef.current.focus()
-    });
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []); // this effect only runs once
 
 
-return(
-    <>
-    <label htmlFor="todoTitle">{props.children}</label>
-    <input 
-    value={props.todoTitle} 
-    onChange={props.handleTitleChange} 
-    type="text" 
-    id="todoTitle" 
-    name = "title" 
-    ref={inputRef}
 
-    
-    />
-    
-    </>
-);
+return (
+        <>
+            <label htmlFor="todoTitle">{props.children}</label>
+            
+            <input
+
+                value={props.todoTitle}
+                onChange={props.handleTitleChange}
+                type="text"
+                id="todoTitle"
+                name="title"
+                ref={inputRef}
+            />
+        </>
+    );
 }
