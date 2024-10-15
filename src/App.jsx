@@ -3,6 +3,8 @@ import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
+
+
 function App() {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -73,19 +75,31 @@ function App() {
         <Route 
           path="/" 
           element={
-            <div>
-              <h1>Todo List</h1>
-              <button onClick={() => setSortAsc(!sortAsc)}>
-                Sort {sortAsc ? 'Descending' : 'Ascending'}
-              </button>
-              <AddTodoForm onAddTodo={addTodo} />
-              {isLoading ? <p>Loading...</p> : <TodoList todoList={todoList} onRemoveTodo={removeTodo} />}
+            <div className="container">
+              <section className="todo-section">
+                <h1>Todo List</h1>
+                <div className="button-container">
+                  <button onClick={() => setSortAsc(!sortAsc)}>
+                    Sort {sortAsc ? 'Descending' : 'Ascending'}
+                  </button>
+                </div>
+                <AddTodoForm onAddTodo={addTodo} />
+                {isLoading ? <p>Loading...</p> : <TodoList todoList={todoList} onRemoveTodo={removeTodo} />}
+              </section>
+              <section className="image-section">
+              
+                <img src="/src/imgs/shakespeare4.png" alt="shakespeare" />
+              </section>
             </div>
           }
         />
         <Route path="/new" element={<h1>New Todo List</h1>} />
       </Routes>
+      <footer className="footer">
+        <p>&copy; 2024 Murat Simsek TodoList Project</p>
+      </footer>
     </BrowserRouter>
+    
   );
 }
 
