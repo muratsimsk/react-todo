@@ -36,7 +36,7 @@ function AddTodoForm({onAddTodo}) {
   );
 }
 //
-AddTodoForm.PropTypes = {
+AddTodoForm.propTypes = {
   onAddTodo: PropTypes.func.isRequired,
 };
 
